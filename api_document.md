@@ -1,6 +1,6 @@
 ## API Documentation
 
-Base URL: https://weshare-springboot.herokuapp.com/
+Base URL: https://weshare-api.herokuapp.com/
 
 ### User
 
@@ -146,49 +146,6 @@ Return the JSON data of the user with specific display name
   ]
   ```
 
----
-
-### Channel
-
-#### Create a new channel
-
-Return the JSON data of new channel that has been created
-
-- **URL**
-
-  /channels
-
-- **Method**
-
-  `POST`
-
-- **URL Parameters**
-
-  None
-
-- **Data**
-
-  ```json
-  {
-      "ownerID": "Uxc523UY",
-      "personID": "ZB89CCZ"
-  }
-  ```
-
-- **Success Response**
-
-  Code: 200
-
-  Content:
-
-  ```json
-  {
-      "id": 1,
-      "ownerID": "Uxc523UY",
-      "personID": "ZB89CCZ"
-  }
-  ```
-
 
 
 #### Get friends
@@ -197,7 +154,7 @@ Retrieve list of users that have contact channel with the current user (represen
 
 - **URL**
 
-  /channels/:id
+  /users/:id/friends
 
 - **Method**
 
@@ -246,4 +203,47 @@ Retrieve list of users that have contact channel with the current user (represen
           }
       }
   ]
+  ```
+
+---
+
+### Channel
+
+#### Create a new channel
+
+Return the JSON data of new channel that has been created
+
+- **URL**
+
+  /channels
+
+- **Method**
+
+  `POST`
+
+- **URL Parameters**
+
+  None
+
+- **Data**
+
+  ```json
+  {
+      "ownerId": "Uxc523UY",
+      "personId": "ZB89CCZ"
+  }
+  ```
+
+- **Success Response**
+
+  Code: 200
+
+  Content:
+
+  ```json
+  {
+      "id": 1,
+      "ownerID": "Uxc523UY",
+      "personID": "ZB89CCZ"
+  }
   ```
