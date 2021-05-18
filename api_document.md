@@ -146,7 +146,50 @@ Return the JSON data of the user with specific display name
   ]
   ```
 
+#### Update user
 
+Return the JSON data of the updated user
+
+- **URL**
+
+  /users/:id
+
+- **Method**
+
+  `PUT`
+
+- **URL Parameters**
+
+  Required:
+
+  `id = [string]`
+
+- **Data**
+
+  ```json
+  {
+      "email": "sampleemail@domain.com",
+      "displayName": "Berlin"
+  }
+  ```
+
+- **Success Response**
+
+  Code: 200
+
+  Content:
+
+  ```json
+  {
+      "id": "Uxc523UY",
+      "email": "sampleemail@domain.com",
+      "displayName": "Berlin",
+      "dob": null,
+      "gender": null,
+      "statusCode": 1,
+      "deleted": false
+  }
+  ```
 
 #### Get friends
 
