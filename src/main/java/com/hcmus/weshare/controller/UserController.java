@@ -43,8 +43,16 @@ public class UserController {
     @GetMapping("/{id}/friends")
     public ResponseEntity<List<Connection>> getFriendsById(@PathVariable(value = "id") String userID) {
         List<Channel> ownerIds = channelRepository.findByOwnerId(userID);
+        List<Channel> personIds = channelRepository.findByPersonId(userID);
         List<Connection> response = generateConnectionResponse(ownerIds, userID);
+        response.addAll(generateConnectionResponse(personIds, userID));
         return ResponseEntity.ok().body(response);
+    }
+
+    @PutMapping("/{id}")
+    public User updateUser(@RequestBody User user, @PathVariable(value = "id") String userID) {
+        user.setId(userID);
+        return userRepository.save(user);
     }
 
     private List<Connection> generateConnectionResponse(List<Channel> channelList, String userID) {
